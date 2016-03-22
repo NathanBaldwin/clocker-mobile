@@ -21,3 +21,243 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+$heading-font: Helvetica;
+$background-green: #5B8623;
+$darker-green: #588302;
+$background-black: #262626;
+$lighter-black: #2C2C2A;
+$dark-black: black;
+$gray-writing: #919191;
+$dark-gray-border: #787878;
+$white-ish: #E3E3E3;
+$blue: #1C416D;
+
+html {
+  top: 0px;
+  bottom: 0px;
+  height: 100%;
+}
+
+#parial-body {
+  top: 0px;
+  height: 100%;
+}
+
+body {
+  top: 0px;
+  bottom: 0px;
+  height: 100%;
+}
+
+label {
+  margin-top: 7px;
+}
+
+body * {
+  font-family: 'Quicksand', sans-serif;
+}
+
+h1.visitor-page-heading {
+  margin-top: 7px;
+  color: $white-ish;
+  margin-bottom: 20px;
+}
+
+button.dropdown-select {
+  color: $background-black;
+  background-color: $background-green;
+  margin-right: 20px;
+  border: solid 1px $background-black;
+}
+
+input.dropdown-select {
+  color: $background-black;
+  background-color: $background-green;
+  border: solid 1px $background-black;
+
+}
+
+// clock animation:
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.wrap {
+  width: 145px;
+  height: 145px;
+}
+
+.center {
+  margin: auto;
+  //position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Timer */
+.timer {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  margin: auto;
+
+ }
+.timer:after, .timer:before {
+  position: absolute;
+  content: "";
+  background-color: #fff;
+}
+.timer:after {
+  width: 40%;
+  height: 8px;
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+
+  -webkit-transform-origin: 4px 4px;
+     -moz-transform-origin: 4px 4px;
+          transform-origin: 4px 4px;
+
+  -webkit-animation: minhand 2s linear infinite;
+     -moz-animation: minhand 2s linear infinite;
+          animation: minhand 2s linear infinite;
+}
+
+.timer:before {
+  width: 20%;
+  height: 8px;
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+
+  -webkit-transform-origin: 4px 4px;
+     -moz-transform-origin: 4px 4px;
+          transform-origin: 4px 4px;
+
+  -webkit-animation: hrhand 8s linear infinite;
+     -moz-animation: hrhand 8s linear infinite;
+          animation: hrhand 8s linear infinite;
+}
+
+@-webkit-keyframes minhand {
+    0%{-webkit-transform:rotate(0deg)}
+    100%{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes minhand {
+    0%{-moz-transform:rotate(0deg)}
+    100%{-moz-transform:rotate(360deg)}
+}
+@keyframes minhand {
+    0%{transform:rotate(0deg)}
+    100%{transform:rotate(360deg)}
+}
+
+@-webkit-keyframes hrhand {
+    0%{-webkit-transform:rotate(0deg)}
+    100%{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes hrhand {
+    0%{-moz-transform:rotate(0deg)}
+    100%{-moz-transform:rotate(360deg)}
+}
+@keyframes hrhand {
+    0%{transform:rotate(0deg)}
+    100%{transform:rotate(360deg)}
+}
+
+// login splash page
+#login {
+  background: $background-green;
+  background: -webkit-linear-gradient(top left, $background-green 0%, $background-green 100%);
+  background: linear-gradient(to bottom right, $background-green 0%, $background-green 100%);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.wrapper.form-success .container h1 {
+  -webkit-transform: translateY(85px);
+      -ms-transform: translateY(85px);
+          transform: translateY(85px);
+}
+
+.login-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 0;
+  padding-top: 130px;
+  height: 400px;
+  text-align: center;
+}
+.login-container h1 {
+  font-size: 40px;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in-put;
+          transition-timing-function: ease-in-put;
+  font-weight: 200;
+  color: white;
+}
+
+form {
+  padding: 20px 0;
+  position: relative;
+  // z-index: 2;
+}
+form input {
+  -webkit-appearance: none;
+  outline: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  // background-color: rgba(255, 255, 255, 0.2);
+  width: 250px;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  font-weight: 300;
+}
+form input:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+form input:focus {
+  background-color: white;
+  width: 300px;
+  color: $background-green;
+}
+form button {
+  -webkit-appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: $background-green;
+  border-radius: 3px;
+  width: 250px;
+  margin-right: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+form button:hover {
+  background-color: #4E5F6D;
+}
+
+.underline {
+  text-decoration: underline;
+  color: $background-black;
+}
