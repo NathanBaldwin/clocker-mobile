@@ -44,7 +44,12 @@ app
     })
     .state('login', {
       url: '/login',
-      templateUrl: 'templates/login.html'
+      views: {
+        '':{
+            templateUrl: 'templates/login.html',
+            controller: 'login'
+            }
+      }
     })
     .state('register', {
       url: '/register',
