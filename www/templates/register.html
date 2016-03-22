@@ -1,0 +1,27 @@
+<section id='register' class="btn-container">
+  <h1>Register</h1>
+    <form>
+      <div>
+        <input type='text' placeholder="Username" value=userName size="40" name='userName' autofocus required ng-model="username">
+      </div>
+      <div>
+        <input type='text'placeholder="First Name" value=firstName size="40" name='ownerFirstName' autofocus required ng-model="firstName">
+      </div>
+      <div>
+        <input type='text' placeholder="Last Name" value=lastName size="40"name='ownerLastName' autofocus ng-model="lastName">
+      </div>
+      <div>
+        <input type='email' placeholder='email' value=email name='email' autofocus ng-model="email">
+      </div>
+      <div>
+        <input type='password' placeholder='Password' name='password' autofocus ng-model="password">
+      </div>
+      <div>
+        <input type='password' placeholder='Verify Password' name='verify' autofocus ng-model="verifyPassword">
+      </div>
+      <div class='btn-container'>
+        <button ng-click="createNewUser()">Go!</button>
+      </div>
+    </div>
+  </form>
+</section>

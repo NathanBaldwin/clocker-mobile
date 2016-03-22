@@ -9941,3 +9941,9 @@ form button:hover {
 .underline {
   text-decoration: underline;
   color: #262626; }
+
+#register {
+  background-color: #5B8623; }
+
+.btn-container {
+  text-align: center; }
