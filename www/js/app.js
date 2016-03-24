@@ -85,11 +85,11 @@ app
           }
         }
       })
-    .state('tab.account', {
-      url: '/account',
+    .state('tab.manageInvites', {
+      url: '/manageInvites',
       views: {
         'tab-account': {
-          templateUrl: 'templates/tab-account.html',
+          templateUrl: 'templates/manageInvites.html',
           controller: 'manageInvites'
         }
       }
