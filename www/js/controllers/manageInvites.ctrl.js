@@ -1,3 +1,4 @@
+
 app.controller('manageInvites', ['$scope', '$rootScope', 'query',
   function($scope, $rootScope, $query) {
 

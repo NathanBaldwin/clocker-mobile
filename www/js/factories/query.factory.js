@@ -1,12 +1,9 @@
 (function() {
   'use strict'
-  app.factory('query', ["httpGET", "$rootScope", "httpPOST",
-    function($httpGET, $rootScope, $httpPOST) {
+  app.factory('query', ["httpGET", "$rootScope",
+    function($httpGET, $rootScope) {
 
       return {
-        loginMobileUser: function(credentials) {
-          return $httpPOST($rootScope.APIurl + '/loginMobileUser', credentials)
-        },
         getAllUserData: function() {
           return $httpGET($rootScope.APIurl + '/singleMobileUser')
         },

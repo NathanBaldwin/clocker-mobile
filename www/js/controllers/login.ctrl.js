@@ -1,8 +1,8 @@
 (function() {
 
   /// this module allows the user to log in/register with email and password for the website ///
-  app.controller('login', ["$scope", "$location", "$rootScope", "$http", "$state", "query", "socket",
-    function($scope, $location, $rootScope, $http, $state, $query, socket) {
+  app.controller('login', ["$scope", "$location", "$rootScope", "$http", "$state", "query",
+    function($scope, $location, $rootScope, $http, $state, $query) {
       console.log("I see login!!")
 
       $scope.login = function() {
@@ -14,10 +14,15 @@
 
         console.log("credentials", credentials);
 
-        $query.loginMobileUser()
-          .then(function(uid) {
+        $http.post($rootScope.APIurl + '/loginMobileUser', credentials, {
+          withCredentials: true
+        })
+          .success(function(uid) {
+            console.log("user info returned:", uid);
             $rootScope.uid = uid
-            $rootScope.refreshIndicator = true
+            $rootScope.refreshIndicator = true //each time visitor and backend controllers load
+            //we'll check this variable. If false, we'll make a query to db to refresh data stored
+            //on $rootScope
             $rootScope.userData = {}
             $state.go('tab.clockList')
             $query.getAllUserData()
@@ -26,6 +31,11 @@
                 $rootScope.userData = userData
                 socket.emit('join', {adminId: uid})
               })
+            })
+          .error(function(error, status) {
+            console.log("status:", status)
+            $state.go('login')
+            $scope.error_message = error
           })
       }
   }])
