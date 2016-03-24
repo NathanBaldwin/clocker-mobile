@@ -8,6 +8,7 @@
           "username": $scope.username,
           "firstName": $scope.firstName,
           "lastName": $scope.lastName,
+          "fullName": $scope.firstName + ' ' + $scope.lastName,
           "email": $scope.email,
           "password": $scope.password,
           "verify": $scope.verifyPassword

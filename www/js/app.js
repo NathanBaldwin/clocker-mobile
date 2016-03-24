@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('app', ['ionic'])
+var app = angular.module('app', ['ionic', 'ui.bootstrap'])
 
 app
   .run(['$ionicPlatform', '$rootScope',
@@ -67,12 +67,12 @@ app
         }
       }
     })
-    .state('tab.chats', {
-        url: '/chats',
+    .state('tab.clockList', {
+        url: '/clockList',
         views: {
-          'tab-chats': {
-            templateUrl: 'templates/tab-chats.html',
-            controller: 'ChatsCtrl'
+          'clockList': {
+            templateUrl: 'templates/clockList.html',
+            controller: 'clockList'
           }
         }
       })
@@ -81,7 +81,7 @@ app
         views: {
           'tab-chats': {
             templateUrl: 'templates/chat-detail.html',
-            controller: 'ChatDetailCtrl'
+            controller: 'createEvent'
           }
         }
       })
@@ -90,7 +90,7 @@ app
       views: {
         'tab-account': {
           templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
+          controller: 'manageInvites'
         }
       }
     });

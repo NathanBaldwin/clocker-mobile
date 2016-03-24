@@ -1,4 +1,4 @@
-<ion-view view-title="Chats">
+<ion-view view-title="Clock List" ng-controller="clockList">
   <ion-content>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
@@ -12,5 +12,6 @@
         </ion-option-button>
       </ion-item>
     </ion-list>
+    <input type="text" ng-model="selectedMobileUser" typeahead="name for name in names | filter:$viewValue | limitTo:8" class="form-control" placeholder="Search Mobile Users...">
   </ion-content>
 </ion-view>
