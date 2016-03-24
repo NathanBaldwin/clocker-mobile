@@ -11,20 +11,6 @@ app.controller('manageInvites', ['$scope', '$rootScope', 'query',
       })
   }
 
-  $scope.declineInvite = function(inviteId) {
-    console.log("you clicked on DECLINE invite", inviteId)
-  }
-  $scope.acceptInvite = function(inviteId) {
-    console.log("you clicked on ACCEPT invite", inviteId)
-    var invite = {
-      inviteId: inviteId
-    }
-    $query.acceptInvite(invite)
-      .then(function(updatedUserData) {
-        console.log("updatedUserData", updatedUserData);
-      })
-  }
-
   $scope.settings = {
     enableFriends: true
   };
