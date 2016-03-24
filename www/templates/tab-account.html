@@ -1,12 +1,12 @@
 <ion-view view-title="Invitations">
   <ion-content>
     <ion-list>
-      <ion-item>
+      <ion-item ng-repeat="invitation in userData.invitations">
+        <h2>{{invitation.orgName}}</h2>
         <!-- <ion-toggle  ng-model="settings.enableFriends">
             Enable Friends
         </ion-toggle> -->
       </ion-item>
     </ion-list>
-
   </ion-content>
 </ion-view>
