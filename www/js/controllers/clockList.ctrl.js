@@ -17,6 +17,7 @@
         $query.getAllUserData()
           .then(function(userData) {
             $rootScope.userData = userData
+            $rootScope.refreshIndicator = true
           })
       }
 

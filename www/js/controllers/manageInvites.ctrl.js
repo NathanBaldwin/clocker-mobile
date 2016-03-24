@@ -8,6 +8,7 @@ app.controller('manageInvites', ['$scope', '$rootScope', 'query',
     $query.getAllUserData()
       .then(function(userData) {
         $rootScope.userData = userData
+        $rootScope.refreshIndicator = true
       })
     }
 
@@ -19,10 +20,10 @@ app.controller('manageInvites', ['$scope', '$rootScope', 'query',
     var invite = {
       inviteId: inviteId
     }
-    // $query.acceptInvite(invite)
-    //   .then(function(updatedUserData) {
-    //     console.log("updatedUserData", updatedUserData);
-    //   })
+    $query.acceptInvite(invite)
+      .then(function(updatedUserData) {
+        console.log("updatedUserData", updatedUserData);
+      })
   }
 
 }])
