@@ -9,6 +9,7 @@ app.controller('manageInvites', ['$scope', '$rootScope', 'query',
       .then(function(userData) {
         $rootScope.userData = userData
         $rootScope.refreshIndicator = true
+        console.log("refreshed userData", userData);
       })
     }
 
