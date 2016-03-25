@@ -6,11 +6,13 @@
       console.log("I see login!!")
 
       $scope.login = function() {
+        console.log("you clicked login!");
         var credentials = {
           email: $scope.email,
           password: $scope.password,
           mobileUser: true
         }
+        console.log("credentials", credentials);
 
         console.log("credentials", credentials);
 
@@ -29,7 +31,7 @@
               .then(function(userData) {
                 console.log("all returned user data:", userData);
                 $rootScope.userData = userData
-                socket.emit('join', {adminId: uid})
+                // socket.emit('join', {adminId: uid})
               })
             })
           .error(function(error, status) {

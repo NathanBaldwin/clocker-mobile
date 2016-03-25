@@ -4,6 +4,7 @@
       console.log("I see admin Sing Up!!");
 
       $scope.createNewUser = function() {
+        console.log("you clicked register!");
         var adminFormData = {
           "username": $scope.username,
           "firstName": $scope.firstName,

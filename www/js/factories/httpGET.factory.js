@@ -10,12 +10,12 @@
           withCredentials: true
         })
           .success(function(data) {
-            console.log(`Successful GET request from ${route}:`, data);
+            console.log("Successful GET request from " + route, data )
             deferred.resolve(data)
           })
           .error(function(error, status) {
             console.log("status:", status)
-            console.log(`!ERROR ERROR! from ${route}`, error)
+            console.log("!ERROR ERROR! from " + route, error)
             deferred.reject(error)
           })
           return deferred.promise
