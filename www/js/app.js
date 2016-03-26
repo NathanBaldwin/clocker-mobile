@@ -52,6 +52,15 @@ app
             }
       }
     })
+    .state('tab.manageInvites', {
+      url: '/account',
+      views: {
+        'tab-account': {
+          templateUrl: 'templates/manageInvites.html',
+          controller: 'manageInvites'
+        }
+      }
+    })
     .state('register', {
       url: '/register',
       templateUrl: 'templates/register.html',
@@ -80,23 +89,15 @@ app
       .state('tab.chat-detail', {
         url: '/chats/:chatId',
         views: {
-          'tab-chats': {
+          'clockList': {
             templateUrl: 'templates/chat-detail.html',
             controller: 'createEvent'
           }
         }
-      })
-    .state('tab.account', {
-      url: '/account',
-      views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'manageInvites'
-        }
-      }
-    });
+      });
+
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/login')
 
 }]);

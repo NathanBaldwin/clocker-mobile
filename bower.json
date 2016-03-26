@@ -5,6 +5,7 @@
     "ionic": "driftyco/ionic-bower#1.2.4"
   },
   "dependencies": {
-    "angular-bootstrap": "^1.2.5"
+    "angular-bootstrap": "^1.2.5",
+    "lodash": "^4.6.1"
   }
 }
