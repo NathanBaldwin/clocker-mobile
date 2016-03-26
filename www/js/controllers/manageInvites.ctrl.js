@@ -23,7 +23,7 @@ app.controller('manageInvites', ['$scope', '$rootScope', 'query',
     }
     $query.acceptInvite(invite)
       .then(function(updatedUserData) {
-        console.log("updatedUserData", updatedUserData);
+        console.log("updatedUserData", updatedUserData)
       })
   }
 
