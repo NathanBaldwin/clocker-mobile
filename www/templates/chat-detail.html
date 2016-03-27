@@ -1,15 +1,52 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
+
 <ion-view view-title="sign In">
   <ion-content class="padding">
     <h1>{{clock.orgName}}</h1>
-    <!-- <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{chat.lastText}}
-    </p> -->
+    <div class="container-flex">
+      <div class="row">
+        <div class="col-sm-12">
+         <div class="form-group btn-group">
+            <button type="button" class="btn dropdown-select dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select Group <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li ng-repeat="group in clock.groups">
+                <a ng-click="setSelectedGroup()">
+                  <span class="dropdown-spacing">{{group.groupName}}</span>
+                </a>
+               </li>
+              <li role="separator" class="divider"></li>
+              <li><a ng-click="showGroupModal()">Other...</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <h4 class="user-selection" ng-model="group">{{group}}</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3">
+         <div class="form-group btn-group">
+            <button type="button" class="btn dropdown-select dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select Event/Activity <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li ng-repeat="activity in clock.activityNames">
+                <a ng-click="setSelectedActivity()">
+                  <span class="dropdown-spacing">{{activity.activityName}}</span>
+                </a>
+               </li>
+              <li role="separator" class="divider"></li>
+              <li><a ng-click="showActivityModal()">Other...</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-7 col-sm-offset-2">
+          <h4 class="user-selection activity-selection" ng-model="activity">{{activity}}</h4>
+        </div>
+      </div>
+      <button class="btn" id="important-button" ng-click="createNewEvent()">Sign In</button>
+    </div>
   </ion-content>
 </ion-view>

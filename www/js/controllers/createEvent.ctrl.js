@@ -1,16 +1,33 @@
-app.controller('createEvent', ['$scope', '$stateParams', '$rootScope', 'Chats',
-  function($scope, $stateParams, $rootScope, Chats) {
-
-  console.log("I see createEvent controller!")
-
-  console.log("all clocks", $rootScope.userData)
+app.controller('createEvent', ['$scope', '$stateParams', '$rootScope', 'socket',
+  function($scope, $stateParams, $rootScope, socket) {
 
   var selectedClockId = $stateParams.chatId
 
   $scope.clock = _.filter($rootScope.userData.clocks, {_id: selectedClockId})
 
   $scope.clock = $scope.clock[0]
+  console.log("userData", $rootScope.userData);
 
-  console.log("clock.orgName", $scope.clock.orgName);
+  $scope.setSelectedGroup = function() {
+    $scope.group = this.group.groupName
+  }
+
+  $scope.setSelectedActivity = function() {
+    $scope.activity = this.activity.activityName
+  }
+
+  $scope.createNewEvent = function() {
+    console.log("you clicked create new event!");
+    var eventData = {
+      email: $rootScope.userData.email,
+      firstName: $rootScope.userData.firstName,
+      lastName: $rootScope.userData.lastName,
+      adminId: $scope.clock._id,
+      group: $scope.group,
+      activity: $scope.activity
+    }
+    // fire socket.io event
+    socket.emit('createClockerEvent', eventData)
+  }
 
 }])

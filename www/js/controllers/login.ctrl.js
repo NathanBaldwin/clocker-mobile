@@ -1,9 +1,10 @@
 (function() {
 
   /// this module allows the user to log in/register with email and password for the website ///
-  app.controller('login', ["$scope", "$location", "$rootScope", "$http", "$state", "query", "socket",
-    function($scope, $location, $rootScope, $http, $state, $query, socket) {
+  app.controller('login', ["$scope", "$location", "$rootScope", "$http", "$state", "query",
+    function($scope, $location, $rootScope, $http, $state, $query) {
       console.log("I see login!!")
+
 
       $scope.login = function() {
         console.log("you clicked login!");
