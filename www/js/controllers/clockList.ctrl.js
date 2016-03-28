@@ -14,7 +14,6 @@
       $scope.deleteMode = false
 
       if(!$rootScope.refreshIndicator) {
-        // getAdminData()
         console.log("no refresh indicator");
         $query.getAllUserData()
           .then(function(userData) {
@@ -27,12 +26,18 @@
         console.log("you clicked delete clock!")
         console.log("clockId", clockId);
         $query.deleteClock({"clockId": clockId})
+          .then(function(returnedData) {
+            console.log("data returned from promise:", returnedData);
+
+            for(var i = 0; i < $rootScope.userData.clocks.length; i++) {
+              if($rootScope.userData.clocks[i]._id == clockId) {
+                  console.log("clock:", $rootScope.userData.clocks[i]);
+                  $rootScope.userData.clocks.splice(i, 1);
+                  break
+              }
+            }
+          })
       }
 
-
-      $scope.chats = Chats.all();
-      $scope.remove = function(chat) {
-        Chats.remove(chat);
-      }
   }])
 })()
