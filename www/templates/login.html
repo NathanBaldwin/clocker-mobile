@@ -2,7 +2,7 @@
   <ion-content id='login'>
     <div id="login-page">
       <div class="wrapper">
-        <div class="login-container">
+        <div class="login-container" ng-controller='login'>
 
           <div class="wrap center">
             <div class="timer"></div>
@@ -10,7 +10,7 @@
           <span class="logo-login"><i class="fa fa-picture-o"></i></span>
           <h1 class="heading">Clocker</h1>
           <form class="form">
-            <input id="user-email" ng-model="email" type='email' placeholder='Email'm name='email' autofocus required>
+            <input id="user-email" ng-model="email" type='email' placeholder='Email' name='email' autofocus required>
             <input id="user-password" ng-model="password" type='password' placeholder='Password' name='password'>
             <button id="login-button" ng-click="login()">Login</button>
           </form>

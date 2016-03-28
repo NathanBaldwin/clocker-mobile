@@ -15,7 +15,7 @@ app
       // for form inputs)
 
       // $rootScope.APIurl = "http://10.0.0.76:3000"
-      $rootScope.APIurl = "http://192.168.1.221:3000"
+      $rootScope.APIurl = "http://clockeronline.com"
 
       if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
