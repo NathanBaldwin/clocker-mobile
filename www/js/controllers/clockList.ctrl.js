@@ -21,14 +21,11 @@
             $rootScope.refreshIndicator = true
           })
       }
-
       $scope.deleteClock = function(clockId) {
         console.log("you clicked delete clock!")
         console.log("clockId", clockId);
         $query.deleteClock({"clockId": clockId})
           .then(function(returnedData) {
-            console.log("data returned from promise:", returnedData);
-
             for(var i = 0; i < $rootScope.userData.clocks.length; i++) {
               if($rootScope.userData.clocks[i]._id == clockId) {
                   console.log("clock:", $rootScope.userData.clocks[i]);
