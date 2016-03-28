@@ -1,11 +1,11 @@
 
-app.controller('manageInvites', ['$scope', '$rootScope', 'query', 'findByIdAndRemove', 'findMatch',
-  function($scope, $rootScope, $query, findByIdAndRemove, findMatch) {
+app.controller('manageInvites', ['$scope', '$rootScope', 'query', 'findByIdAndRemove', 'findMatch', 'socket',
+  function($scope, $rootScope, $query, findByIdAndRemove, findMatch, socket) {
 
-  $scope.$on('$destroy', function () {
-    console.log("FIRED DESTROY! - backend-activity")
-    socket.removeAllListeners()
-  })
+  // $scope.$on('$destroy', function () {
+  //   console.log("FIRED DESTROY! - backend-activity")
+  //   socket.removeAllListeners()
+  // })
 
   if(!$rootScope.refreshIndicator) {
     // getAdminData()
@@ -14,6 +14,7 @@ app.controller('manageInvites', ['$scope', '$rootScope', 'query', 'findByIdAndRe
       .then(function(userData) {
         $rootScope.userData = userData
         $rootScope.refreshIndicator = true
+        socket.emit('mobileUserJoin', userData._id)
         console.log("refreshed userData", userData);
       })
     }

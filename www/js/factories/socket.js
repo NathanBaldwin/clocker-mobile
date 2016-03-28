@@ -6,7 +6,7 @@
 
     // var mySocket = io('http://127.0.0.1:3000')
 
-    var socket = io($rootScope.APIurl)
+    var socket = io('http://clockeronline.com')
 
     return {
       on: function (eventName, callback) {

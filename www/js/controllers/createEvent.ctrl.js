@@ -1,10 +1,10 @@
 app.controller('createEvent', ['$scope', '$stateParams', '$rootScope', 'socket',
   function($scope, $stateParams, $rootScope, socket) {
 
-  $scope.$on('$destroy', function () {
-    console.log("FIRED DESTROY! - backend-activity")
-    socket.removeAllListeners()
-  })
+  // $scope.$on('$destroy', function () {
+  //   console.log("FIRED DESTROY! - backend-activity")
+  //   socket.removeAllListeners()
+  // })
 
   var selectedClockId = $stateParams.chatId
 
