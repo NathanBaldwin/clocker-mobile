@@ -1,6 +1,11 @@
 app.controller('createEvent', ['$scope', '$stateParams', '$rootScope', 'socket',
   function($scope, $stateParams, $rootScope, socket) {
 
+  $scope.$on('$destroy', function () {
+    console.log("FIRED DESTROY! - backend-activity")
+    socket.removeAllListeners()
+  })
+
   var selectedClockId = $stateParams.chatId
 
   $scope.clock = _.filter($rootScope.userData.clocks, {_id: selectedClockId})

@@ -1,10 +1,14 @@
 (function() {
 
   /// this module allows the user to log in/register with email and password for the website ///
-  app.controller('login', ["$scope", "$location", "$rootScope", "$http", "$state", "query",
-    function($scope, $location, $rootScope, $http, $state, $query) {
+  app.controller('login', ["$scope", "$location", "$rootScope", "$http", "$state", "query", "socket",
+    function($scope, $location, $rootScope, $http, $state, $query, socket) {
       console.log("I see login!!")
 
+      $scope.$on('$destroy', function () {
+        console.log("FIRED DESTROY! - backend-activity")
+        socket.removeAllListeners()
+      })
 
       $scope.login = function() {
         console.log("you clicked login!");
@@ -32,6 +36,7 @@
               .then(function(userData) {
                 console.log("all returned user data:", userData);
                 $rootScope.userData = userData
+                socket.emit('mobileUserJoin', userData._id)
                 // socket.emit('join', {adminId: uid})
               })
             })

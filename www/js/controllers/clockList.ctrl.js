@@ -1,7 +1,7 @@
 
 (function() {
-  app.controller('clockList', ["$scope", "$http", "$location", "$rootScope", "Chats", "query",
-    function($scope, $http, $location, $rootScope, Chats, $query) {
+  app.controller('clockList', ["$scope", "$http", "$location", "$rootScope", "Chats", "query", "socket",
+    function($scope, $http, $location, $rootScope, Chats, $query, socket) {
       console.log("I see clockList!!")
       // With the new view caching in Ionic, Controllers are only called
       // when they are recreated or on app start, instead of every page change.
@@ -10,6 +10,10 @@
       //
       //$scope.$on('$ionicView.enter', function(e) {
       //});
+      $scope.$on('$destroy', function () {
+        console.log("FIRED DESTROY! - backend-activity")
+        socket.removeAllListeners()
+      })
 
       $scope.deleteMode = false
 
@@ -19,8 +23,14 @@
           .then(function(userData) {
             $rootScope.userData = userData
             $rootScope.refreshIndicator = true
+            socket.emit('mobileUserJoin', userData._id)
           })
       }
+
+      socket.on('adminInvitation', function(adminData) {
+        console.log("invitation received from admin:", adminData);
+      })
+
       $scope.deleteClock = function(clockId) {
         console.log("you clicked delete clock!")
         console.log("clockId", clockId);

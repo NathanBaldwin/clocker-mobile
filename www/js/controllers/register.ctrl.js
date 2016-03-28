@@ -1,7 +1,12 @@
 (function() {
-  app.controller('register', ["$scope", "$http", "$location", "$rootScope",
-    function($scope, $http, $location, $rootScope) {
-      console.log("I see admin Sing Up!!");
+  app.controller('register', ["$scope", "$http", "$location", "$rootScope", "socket",
+    function($scope, $http, $location, $rootScope, socket) {
+      console.log("I see admin Sing Up!!")
+
+      $scope.$on('$destroy', function () {
+        console.log("FIRED DESTROY! - backend-activity")
+        socket.removeAllListeners()
+      })
 
       $scope.createNewUser = function() {
         console.log("you clicked register!");

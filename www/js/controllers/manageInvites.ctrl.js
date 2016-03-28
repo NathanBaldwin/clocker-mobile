@@ -2,6 +2,11 @@
 app.controller('manageInvites', ['$scope', '$rootScope', 'query',
   function($scope, $rootScope, $query) {
 
+  $scope.$on('$destroy', function () {
+    console.log("FIRED DESTROY! - backend-activity")
+    socket.removeAllListeners()
+  })
+
   if(!$rootScope.refreshIndicator) {
     // getAdminData()
     console.log("no refresh indicator");
