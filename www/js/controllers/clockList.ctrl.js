@@ -11,6 +11,8 @@
       //$scope.$on('$ionicView.enter', function(e) {
       //});
 
+      $scope.deleteMode = false
+
       if(!$rootScope.refreshIndicator) {
         // getAdminData()
         console.log("no refresh indicator");
@@ -21,6 +23,10 @@
           })
       }
 
+      $scope.deleteClock = function() {
+        console.log("you clicked delete clock!")
+        $query.deleteClock()
+      }
 
 
       $scope.chats = Chats.all();
