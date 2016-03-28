@@ -5,18 +5,25 @@
 
       return function(route, dataToSave) {
         var deferred = $q.defer()
-        console.log("FIRED PUT");
-        $http.delete(route, dataToSave)
+        var config = {
+          method: "DELETE",
+          withCredentials: true,
+          url: route,
+          data: dataToSave,
+          headers: {"Content-Type": "application/json;charset=utf-8"}
+        }
+        console.log("FIRED POST");
+        $http(config)
           .success(function(retunedData) {
-            console.log("Successful DELETE request from " + route, retunedData);
+            console.log("Successful DELETE request from " + route, retunedData)
             deferred.resolve(retunedData)
           })
-        .error(function(error, status) {
-          console.log("status:", status)
-          console.log("!ERROR ERROR! DELETE to " + route, error)
-          deferred.reject(error)
-        })
-        return deferred.promise
+          .error(function(error, status) {
+            console.log("status:", status)
+            console.log("!ERROR ERROR! from DELETE to " + route, error)
+            deferred.reject(error)
+          })
+          return deferred.promise
       }
     }
   ])

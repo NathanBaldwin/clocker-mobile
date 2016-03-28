@@ -10,8 +10,8 @@
         acceptInvite: function(inviteId) {
           return $httpPOST($rootScope.APIurl + '/mobileUser/acceptInvite', inviteId)
         },
-        deleteClock: function() {
-          return $httpDELETE($rootScope.APIurl + '/mobileUser/deleteClock')
+        deleteClock: function(clockId) {
+          return $httpDELETE($rootScope.APIurl + '/mobileUser/deleteClock', clockId)
         }
       }
     }

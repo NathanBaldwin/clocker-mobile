@@ -23,9 +23,10 @@
           })
       }
 
-      $scope.deleteClock = function() {
+      $scope.deleteClock = function(clockId) {
         console.log("you clicked delete clock!")
-        $query.deleteClock()
+        console.log("clockId", clockId);
+        $query.deleteClock({"clockId": clockId})
       }
 
 

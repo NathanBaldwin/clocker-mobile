@@ -20,7 +20,7 @@
     <ion-list ng-show='deleteMode'>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="clock in userData.clocks" type="item-text-wrap">
         <h2>{{clock.orgName}}</h2>
-        <i ng-click="deleteClock()" class="icon ion-ios-minus-outline"></i>
+        <i ng-click="deleteClock(clock._id)" class="icon ion-ios-minus-outline"></i>
       </ion-item>
     </ion-list>
 
