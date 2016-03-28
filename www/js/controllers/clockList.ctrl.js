@@ -1,7 +1,7 @@
 
 (function() {
-  app.controller('clockList', ["$scope", "$http", "$location", "$rootScope", "Chats", "query", "socket",
-    function($scope, $http, $location, $rootScope, Chats, $query, socket) {
+  app.controller('clockList', ["$scope", "$http", "$location", "$rootScope", "Chats", "query", "socket", "findByIdAndRemove",
+    function($scope, $http, $location, $rootScope, Chats, $query, socket, findByIdAndRemove) {
       console.log("I see clockList!!")
       // With the new view caching in Ionic, Controllers are only called
       // when they are recreated or on app start, instead of every page change.
@@ -28,7 +28,8 @@
       }
 
       socket.on('adminInvitation', function(adminData) {
-        console.log("invitation received from admin:", adminData);
+        console.log("invitation received from admin:", adminData)
+        $rootScope.userData.invitations.push(adminData)
       })
 
       $scope.deleteClock = function(clockId) {
@@ -36,13 +37,7 @@
         console.log("clockId", clockId);
         $query.deleteClock({"clockId": clockId})
           .then(function(returnedData) {
-            for(var i = 0; i < $rootScope.userData.clocks.length; i++) {
-              if($rootScope.userData.clocks[i]._id == clockId) {
-                  console.log("clock:", $rootScope.userData.clocks[i]);
-                  $rootScope.userData.clocks.splice(i, 1);
-                  break
-              }
-            }
+            findByIdAndRemove($rootScope.userData.clocks, '_id', clockId)
           })
       }
 

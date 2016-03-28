@@ -1,6 +1,6 @@
 
-app.controller('manageInvites', ['$scope', '$rootScope', 'query',
-  function($scope, $rootScope, $query) {
+app.controller('manageInvites', ['$scope', '$rootScope', 'query', 'findByIdAndRemove', 'findMatch',
+  function($scope, $rootScope, $query, findByIdAndRemove, findMatch) {
 
   $scope.$on('$destroy', function () {
     console.log("FIRED DESTROY! - backend-activity")
@@ -29,6 +29,11 @@ app.controller('manageInvites', ['$scope', '$rootScope', 'query',
     $query.acceptInvite(invite)
       .then(function(updatedUserData) {
         console.log("updatedUserData", updatedUserData)
+        var invitations = $rootScope.userData.invitations
+        var match = findMatch(invitations, "_id", inviteId)
+        $rootScope.userData.clocks.push(match[0])
+        findByIdAndRemove(invitations, "_id", inviteId)
+
       })
   }
 
