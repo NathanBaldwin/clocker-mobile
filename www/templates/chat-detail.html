@@ -1,55 +1,34 @@
 
-<ion-view view-title="sign In">
+<ion-view view-title="Sign In">
   <ion-content class="padding">
     <h1>{{clock.orgName}}</h1>
-    <div class="container-flex">
-      <div class="row">
-        <div class="col-sm-12">
-         <div class="form-group btn-group">
-            <button type="button" class="btn dropdown-select dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Select Group <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li ng-repeat="group in clock.groups">
-                <a ng-click="setSelectedGroup()">
-                  <span class="dropdown-spacing">{{group.groupName}}</span>
-                </a>
-               </li>
-              <li role="separator" class="divider"></li>
-              <li><a ng-click="showGroupModal()">Other...</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-8">
-          <h4 class="user-selection" ng-model="group">{{group}}</h4>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-sm-3">
-         <div class="form-group btn-group">
-            <button type="button" class="btn dropdown-select dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Select Event/Activity <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li ng-repeat="activity in clock.activityNames">
-                <a ng-click="setSelectedActivity()">
-                  <span class="dropdown-spacing">{{activity.activityName}}</span>
-                </a>
-               </li>
-              <li role="separator" class="divider"></li>
-              <li><a ng-click="showActivityModal()">Other...</a></li>
-            </ul>
-          </div>
+    <div class="list">
+      <form>
+      <label class="item item-input button-full item-select">
+        <div class="input-label">
+          Group
         </div>
-        <div class="col-sm-7 col-sm-offset-2">
-          <h4 class="user-selection activity-selection" ng-model="activity">{{activity}}</h4>
-        </div>
-      </div>
-      <button ng-click="createNewEvent()" class="button button-block button-stable">Sign In</button>
-      <button ng-click="signOut()" class="button button-block button-assertive">Sign Out</button>
-      <!-- <button class="btn" id="important-button" ng-click="createNewEvent()">Sign In</button> -->
+        <select ng-model='$parent.group' >
+          <option ng-repeat="group in clock.groups">{{group.groupName}}</option>
+          <option selected></option>
+        </select>
+      </label>
 
+      <label class="item item-input button-full item-select">
+        <div class="input-label">
+          Activity
+        </div>
+        <select ng-model='$parent.activity' ng-options='activity.activityName as activity.activityName for activity in clock.activityNames'>
+          <option></option>
+          <option selected></option>
+        </select>
+      </label>
+      </form>
     </div>
+
+    <button ng-click="createNewEvent()" class="button button-block button-stable">Sign In</button>
+    <button ng-click="signOut()" class="button button-block button-assertive">Sign Out</button>
+
   </ion-content>
 </ion-view>

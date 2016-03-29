@@ -21,13 +21,13 @@ app.controller('createEvent', ['$scope', '$stateParams', '$rootScope', 'socket',
     $scope.clock = $scope.clock[0]
   })
 
-  $scope.setSelectedGroup = function() {
-    $scope.group = this.group.groupName
-  }
+  // $scope.setSelectedGroup = function() {
+  //   $scope.group = this.group.groupName
+  // }
 
-  $scope.setSelectedActivity = function() {
-    $scope.activity = this.activity.activityName
-  }
+  // $scope.setSelectedActivity = function() {
+  //   $scope.activity = this.activity.activityName
+  // }
 
   $scope.createNewEvent = function() {
     console.log("you clicked create new event!");
