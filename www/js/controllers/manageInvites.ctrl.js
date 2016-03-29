@@ -8,7 +8,6 @@ app.controller('manageInvites', ['$scope', '$rootScope', 'query', 'findByIdAndRe
   // })
 
   if(!$rootScope.refreshIndicator) {
-    // getAdminData()
     console.log("no refresh indicator");
     $query.getAllUserData()
       .then(function(userData) {

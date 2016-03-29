@@ -86,7 +86,7 @@ app
         }
       })
       .state('tab.chat-detail', {
-        url: '/chats/:chatId',
+        url: '/chats/:clockId',
         views: {
           'clockList': {
             templateUrl: 'templates/chat-detail.html',

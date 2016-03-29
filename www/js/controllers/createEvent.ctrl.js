@@ -1,12 +1,21 @@
-app.controller('createEvent', ['$scope', '$stateParams', '$rootScope', 'socket',
-  function($scope, $stateParams, $rootScope, socket) {
+app.controller('createEvent', ['$scope', '$stateParams', '$rootScope', 'socket', 'query',
+  function($scope, $stateParams, $rootScope, socket, $query) {
 
   // $scope.$on('$destroy', function () {
   //   console.log("FIRED DESTROY! - backend-activity")
   //   socket.removeAllListeners()
   // })
+  if(!$rootScope.refreshIndicator) {
+    console.log("no refresh indicator");
+    $query.getAllUserData()
+      .then(function(userData) {
+        $rootScope.userData = userData
+        $rootScope.refreshIndicator = true
+        console.log("refreshed userData", userData);
+      })
+    }
 
-  var selectedClockId = $stateParams.chatId
+  var selectedClockId = $stateParams.clockId
 
   $scope.clock = _.filter($rootScope.userData.clocks, {_id: selectedClockId})
 
@@ -29,10 +38,19 @@ app.controller('createEvent', ['$scope', '$stateParams', '$rootScope', 'socket',
       lastName: $rootScope.userData.lastName,
       adminId: $scope.clock._id,
       group: $scope.group,
-      activity: $scope.activity
+      activity: $scope.activity,
+      mobileUserId:$rootScope.userData._id
     }
     // fire socket.io event
     socket.emit('createClockerEvent', eventData)
+  }
+
+  $scope.signOut = function() {
+    var mobileUserId = {
+      mobileUserId: $rootScope.userData._id,
+      adminId: $scope.clock._id
+    }
+    socket.emit('signOutMobileUser', mobileUserId)
   }
 
 }])

@@ -46,7 +46,10 @@
           <h4 class="user-selection activity-selection" ng-model="activity">{{activity}}</h4>
         </div>
       </div>
-      <button class="btn" id="important-button" ng-click="createNewEvent()">Sign In</button>
+      <button ng-click="createNewEvent()" class="button button-block button-stable">Sign In</button>
+      <button ng-click="signOut()" class="button button-block button-assertive">Sign Out</button>
+      <!-- <button class="btn" id="important-button" ng-click="createNewEvent()">Sign In</button> -->
+
     </div>
   </ion-content>
 </ion-view>
