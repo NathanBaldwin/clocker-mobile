@@ -16,11 +16,10 @@ app.controller('createEvent', ['$scope', '$stateParams', '$rootScope', 'socket',
     }
 
   var selectedClockId = $stateParams.clockId
-
-  $scope.clock = _.filter($rootScope.userData.clocks, {_id: selectedClockId})
-
-  $scope.clock = $scope.clock[0]
-  console.log("userData", $rootScope.userData);
+  $scope.$watch(function() {
+    $scope.clock = _.filter($rootScope.userData.clocks, {_id: selectedClockId})
+    $scope.clock = $scope.clock[0]
+  })
 
   $scope.setSelectedGroup = function() {
     $scope.group = this.group.groupName

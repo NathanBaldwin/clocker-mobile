@@ -25,11 +25,20 @@
             $rootScope.refreshIndicator = true
             socket.emit('mobileUserJoin', userData._id)
           })
+
       }
 
       socket.on('adminInvitation', function(adminData) {
         console.log("invitation received from admin:", adminData)
         $rootScope.userData.invitations.push(adminData)
+      })
+
+      socket.on('updateDropdowns', function() {
+        console.log("SOMEONE UPDATED A DROPDWON LIST")
+        $query.getAllUserData()
+          .then(function(userData) {
+            $rootScope.userData = userData
+          })
       })
 
       $scope.deleteClock = function(clockId) {
