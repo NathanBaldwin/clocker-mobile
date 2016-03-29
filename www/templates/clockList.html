@@ -1,14 +1,17 @@
 <ion-view view-title="Clock List">
+
   <ion-content>
-    <button class="btn" id="important-button" ng-click="deleteMode = !deleteMode">
+    <button class="button button-clear" ng-click="deleteMode = !deleteMode">
       <span ng-if="!deleteMode">Delete</span>
       <span ng-if="deleteMode">Done</span>
     </button>
 
     <!-- REGULAR VIEW -->
     <ion-list ng-show='!deleteMode'>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="clock in userData.clocks" type="item-text-wrap" href="#/tab/chats/{{clock._id}}">
-        <h2>{{clock.orgName}}</h2>
+      <ion-item class="item-borders item-remove-animate item-icon-right" ng-repeat="clock in userData.clocks" type="item-text-wrap" href="#/tab/chats/{{clock._id}}">
+        <div>
+          <h2>{{clock.orgName}}</h2>
+        </div>
         <ion-option-button class="button-assertive" ng-click="remove(chat)">
           Delete
         </ion-option-button>
@@ -18,7 +21,7 @@
 
     <!-- DELETE MODE VIEW -->
     <ion-list ng-show='deleteMode'>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="clock in userData.clocks" type="item-text-wrap">
+      <ion-item class="item-remove-animate item-icon-right" ng-repeat="clock in userData.clocks" type="item-text-wrap">
         <h2>{{clock.orgName}}</h2>
         <i ng-click="deleteClock(clock._id)" class="icon ion-ios-minus-outline"></i>
       </ion-item>

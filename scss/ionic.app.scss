@@ -3,13 +3,15 @@ To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file.
 
 For example, you might change some of the default colors:
+*/
+$light:                           #5B8623 !default;
 
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
+$stable:                          #5B8623 !default;
 $calm:                            #11c1f3 !default;
+$positive:                        #E3E3E3 !default;
 $balanced:                        #33cd5f !default;
 $energized:                       #ffc900 !default;
+/*
 $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
@@ -32,6 +34,23 @@ $dark-gray-border: #787878;
 $white-ish: #E3E3E3;
 $blue: #1C416D;
 
+.item-borders {
+  border: solid 1px #416600;
+}
+
+.label-title {
+  color: $lighter-black;
+}
+
+.dropdown-borders {
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  background-color: $background-green;
+}
+.item-select select {
+  background-color: $background-green;
+}
+
 html {
   top: 0px;
   bottom: 0px;
@@ -41,6 +60,19 @@ html {
 #parial-body {
   top: 0px;
   height: 100%;
+}
+
+ion-content {
+  background-color: $background-green;
+}
+
+ion-item {
+  border: solid 1px red;
+  // background-color: $background-green;
+}
+
+#back-button {
+  color: $lighter-black;
 }
 
 body {
@@ -196,8 +228,8 @@ input.dropdown-select {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px 0;
-  padding-top: 130px;
-  height: 400px;
+  padding-top: 65px;
+  height: 300px;
   text-align: center;
 }
 .login-container h1 {
@@ -267,10 +299,41 @@ form button:hover {
   background-color: $background-green;
 }
 
+#register-heading {
+  margin-top: 30px;
+}
+
 .btn-container {
   text-align: center;
 }
 
 .left-icon-margin {
-  margin-right: 65px;
+  margin-right: 50px;
+}
+// SIGN IN PAGE:
+.centered {
+  width: 100%;
+  text-align: center;
+}
+#orgTitle {
+  margin-top: 25px;
+  color: $white-ish;
+}
+
+#signIn {
+  margin-top: 50px;
+  margin-bottom: 25px;
+  background-color: black;
+  color: $background-green;
+}
+
+#signOut {
+  background-color: $background-green;
+  color: black;
+  border: solid 1px black;
+}
+//INVITE LIST:
+
+#inviteListSpacer {
+  margin-top: 20px;
 }
