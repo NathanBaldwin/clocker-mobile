@@ -1,19 +1,13 @@
 app.controller('createEvent', ['$scope', '$stateParams', '$rootScope', 'socket', 'query',
   function($scope, $stateParams, $rootScope, socket, $query) {
 
-  // $scope.$on('$destroy', function () {
-  //   console.log("FIRED DESTROY! - backend-activity")
-  //   socket.removeAllListeners()
-  // })
-  if(!$rootScope.refreshIndicator) {
-    console.log("no refresh indicator");
-    $query.getAllUserData()
-      .then(function(userData) {
-        $rootScope.userData = userData
-        $rootScope.refreshIndicator = true
-        console.log("refreshed userData", userData);
-      })
-    }
+  $query.getAllUserData()
+    .then(function(userData) {
+      $rootScope.userData = userData
+      $rootScope.refreshIndicator = true
+      console.log("refreshed userData", userData);
+    })
+
 
   var selectedClockId = $stateParams.clockId
   $scope.$watch(function() {

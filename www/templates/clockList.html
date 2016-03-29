@@ -7,7 +7,7 @@
     </button>
 
     <!-- REGULAR VIEW -->
-    <ion-list ng-show='!deleteMode'>
+    <ion-list id='clockList' ng-show='!deleteMode'>
       <ion-item class="item-borders item-remove-animate item-icon-right" ng-repeat="clock in userData.clocks" type="item-text-wrap" href="#/tab/chats/{{clock._id}}">
         <div>
           <h2>{{clock.orgName}}</h2>
@@ -20,7 +20,7 @@
     </ion-list>
 
     <!-- DELETE MODE VIEW -->
-    <ion-list ng-show='deleteMode'>
+    <ion-list id='clockList-delete' ng-show='deleteMode'>
       <ion-item class="item-remove-animate item-icon-right" ng-repeat="clock in userData.clocks" type="item-text-wrap">
         <h2>{{clock.orgName}}</h2>
         <i ng-click="deleteClock(clock._id)" class="icon ion-ios-minus-outline"></i>

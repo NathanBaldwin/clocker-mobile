@@ -4,9 +4,9 @@ in ionic's _variables.scss file.
 
 For example, you might change some of the default colors:
 */
-$light:                           #5B8623 !default;
+$light:                           #E3E3E3 !default;
 
-$stable:                          #5B8623 !default;
+$stable:                          #E3E3E3 !default;
 $calm:                            #11c1f3 !default;
 $positive:                        #E3E3E3 !default;
 $balanced:                        #33cd5f !default;
@@ -34,8 +34,21 @@ $dark-gray-border: #787878;
 $white-ish: #E3E3E3;
 $blue: #1C416D;
 
+.tab-icons {
+  padding-top: 6px;
+}
+
 .item-borders {
   border: solid 1px #416600;
+}
+
+#clockList a.item-content {
+  background-color: $background-green;
+}
+
+//clocklist delete:
+.item-remove-animate.item-icon-right.item {
+  background-color: $background-green;
 }
 
 .label-title {
@@ -317,7 +330,7 @@ form button:hover {
 }
 #orgTitle {
   margin-top: 25px;
-  color: $white-ish;
+  color: white;
 }
 
 #signIn {
