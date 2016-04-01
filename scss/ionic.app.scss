@@ -4,9 +4,9 @@ in ionic's _variables.scss file.
 
 For example, you might change some of the default colors:
 */
-$light:                           #E3E3E3 !default;
+$light:                           #CFCFCF !default;
 
-$stable:                          #E3E3E3 !default;
+$stable:                          #CFCFCF !default;
 $calm:                            #11c1f3 !default;
 $positive:                        #E3E3E3 !default;
 $balanced:                        #33cd5f !default;
@@ -79,11 +79,6 @@ ion-content {
   background-color: $background-green;
 }
 
-ion-item {
-  border: solid 1px red;
-  // background-color: $background-green;
-}
-
 #back-button {
   color: $lighter-black;
 }
@@ -139,7 +134,6 @@ input.dropdown-select {
 
 .center {
   margin: auto;
-  //position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
@@ -258,13 +252,11 @@ input.dropdown-select {
 form {
   padding: 20px 0;
   position: relative;
-  // z-index: 2;
 }
 form input {
   -webkit-appearance: none;
   outline: 0;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  // background-color: rgba(255, 255, 255, 0.2);
   width: 250px;
   border-radius: 3px;
   padding: 10px 15px;
@@ -349,4 +341,8 @@ form button:hover {
 
 #inviteListSpacer {
   margin-top: 20px;
+}
+
+.item-borders.item.item-icon-right {
+  background-color: $background-green;
 }
