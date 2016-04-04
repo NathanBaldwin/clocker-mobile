@@ -5,7 +5,7 @@ Clocker-Mobile is designed to be used in tandem with the Clocker 2.0 web app, en
 
 I used the Ionic framework, which enabled me to utilize JavaScript and Angular to build the entire app and run it natively on an iPhone or Android device (currently only tested on ios, however).
 
-##Note:
+##2 Important Note:
 
 Currently, an organization must be logged in to the clocker web app in order to accept remote sign-ins from mobile devices. Upcoming versions, however, will support remote sign-in even if the parent organization is not logged in.
 
