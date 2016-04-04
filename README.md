@@ -13,7 +13,7 @@ Additionally, because I am using session ID cookies to authenticate users and re
 
 ##How it Works:
 
-Clocker-mobile is designed to run natively on your smartphone. For demoing purposes, however, you can visit (LINK COMING SOON) to try out the app.
+Clocker-mobile is designed to run natively on your smartphone. For demoing purposes, however, you can visit clocker-mobile.com to try out the app.
 
 Once you have registered for a clocker-mobile account, any user of the Clocker Web-App can search for you by name and invite you to 'join' their organization (via the 'backend' view of the Clocker Web-App).
 
