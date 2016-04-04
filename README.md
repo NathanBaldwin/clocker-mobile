@@ -9,6 +9,8 @@ I used the Ionic framework, which enabled me to utilize JavaScript and Angular t
 
 Currently, an organization must be logged in to the clocker web app in order to accept remote sign-ins from mobile devices. Upcoming versions, however, will support remote sign-in even if the parent organization is not logged in.
 
+Additionally, because I am using session ID cookies to authenticate users and retrieve user data, in order to use the mobile app and the web app simultaneously, you'll need to run each app in a different browser.
+
 ##How it Works:
 
 Clocker-mobile is designed to run natively on your smartphone. For demoing purposes, however, you can visit (LINK COMING SOON) to try out the app.
